@@ -251,6 +251,7 @@
 'Videos': 'Vídeos',
 'View': 'Vista',
 'Welcome %(username)s! Click on the link %(link)s to verify your email': 'Welcome %(username)s! Click on the link %(link)s to verify your email',
+'Welcome to EduManager!': 'Welcome to EduManager!',
 'Welcome to web2py!': '¡Bienvenido a web2py!',
 'Which called the function %s located in the file %s': 'La cual llamó la función %s localizada en el archivo %s',
 'Wiki Example': 'Wiki Example',

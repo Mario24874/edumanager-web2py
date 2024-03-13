@@ -6,8 +6,23 @@
 
 # ---- example index page ----
 def index():
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    response.title = "EduManager"
+ 
+    # Define the navigation menu
+    menu_items = [
+        ('Home', URL('default', 'index')),
+        ('Students', URL('default', 'students')),
+        ('Classrooms', URL('default', 'classrooms')),
+        ('Subjects', URL('default', 'subjects')),
+        ('Search', URL('default', 'search')),
+        ('LOGIN', URL('default', 'user'))
+    ]
+    
+    # Check if the user is logged in to display the LOGOUT link
+    if auth.user:
+        menu_items.append(('LOGOUT', URL('default', 'user', args=['logout'])))
+    
+    return dict(menu_items=menu_items)
 
 # ---- API (example) -----
 @auth.requires_login()
@@ -16,7 +31,7 @@ def api_get_user_email():
     return response.json({'status':'success', 'email':auth.user.email})
 
 # ---- Smart Grid (example) -----
-@auth.requires_membership('admin') # can only be accessed by members of admin groupd
+@auth.requires_membership('admin') # can only be accessed by members of admin group
 def grid():
     response.view = 'generic.html' # use a generic view
     tablename = request.args(0)
@@ -56,3 +71,22 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+
+# ---- Additional routes for students, subjects, and classrooms ----
+def students():
+    """
+    This function handles the view for the students page.
+    """
+    return dict()
+
+def subjects():
+    """
+    This function handles the view for the subjects page.
+    """
+    return dict()
+
+def classrooms():
+    """
+    This function handles the view for the classrooms page.
+    """
+    return dict()
