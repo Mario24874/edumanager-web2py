@@ -53,3 +53,27 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
+timestamp: 2024-03-14T15:11:19.298090
+CREATE TABLE "classroom"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512)
+);
+success!
+timestamp: 2024-03-14T15:11:19.502667
+CREATE TABLE "subject"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512)
+);
+success!
+timestamp: 2024-03-14T17:33:09.258870
+CREATE TABLE "classrooms"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512)
+);
+success!
+timestamp: 2024-03-14T17:39:50.269818
+CREATE TABLE "subjects"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512)
+);
+success!

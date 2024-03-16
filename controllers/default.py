@@ -4,6 +4,7 @@
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
+
 # ---- example index page ----
 def index():
     response.title = "EduManager"
@@ -24,7 +25,7 @@ def index():
     
     return dict(menu_items=menu_items)
 
-# ---- API (example) -----
+    # ---- API (example) -----
 @auth.requires_login()
 def api_get_user_email():
     if not request.env.request_method == 'GET': raise HTTP(403)
@@ -90,3 +91,14 @@ def classrooms():
     This function handles the view for the classrooms page.
     """
     return dict()
+
+from gluon.sqlhtml import SQLFORM
+
+def classrooms():
+    grid = SQLFORM.grid(db.classrooms, orderby=db.classrooms.name)
+    return dict(grid=grid)
+
+def subjects():
+    grid = SQLFORM.grid(db.subjects, orderby=db.subjects.name)
+    return dict(grid=grid)
+
